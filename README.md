@@ -1,2 +1,2 @@
-# unicorn-remote
-Control your Unicorn HAT from a web interface
+# Unicorn Remote
+Control your Unicorn HAT LED matrix from the web
