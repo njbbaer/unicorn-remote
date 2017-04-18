@@ -1,14 +1,18 @@
 <!doctype html>
 
 <title>Unicorn Remote</title>
+
 <h1>Unicorn Remote</h1>
 
-<form action="/" method="post" class="add-entry">
-    <dl>
-        <dt><h3>Brightness: {{ brightness }}</h3></dt>
-        <dd><input type="text" name="brightness" value={{ brightness }}></dd>
-        <dt><h3>Running: {{ program }}</h3></dt>
-        <dd><input type="submit" name="program" value="Rainbow"></dd>
-        <dd><input type="submit" name="program" value="Snow"></dd>
-    </dl>
+<form action="/" method="post">
+    <h3>Brightness: {{ brightness }}</h3>
+    <input type="number" name="brightness" style="width: 40px" 
+        min="0" max="100" value={{ brightness }}>
+    <input type="submit" value="Set">
+</form>
+
+<form action="/" method="post">
+    <h3>Program: {{ program }}</h3>
+    <input type="submit" name="program" value="rainbow">
+    <input type="submit" name="program" value="snow">
 </form>
