@@ -7,6 +7,8 @@ import subprocess
 import sys
 
 app = Flask(__name__)
+api = Api(app)
+
 
 class State:
     ''' Handle Unicorn HAT state'''
@@ -35,8 +37,9 @@ class State:
 # Initialize unicorn state
 state = State(brightness=50, program_name=None)
 
+
 @app.route('/', methods=['POST', 'GET'])
-def home(brightness=state.brightness, 
+def index(brightness=state.brightness, 
          program=state.program_name):
 
     if request.method == 'POST':
@@ -47,8 +50,27 @@ def home(brightness=state.brightness,
         if 'program' in request.form:
             state.set_program(request.form['program'])
             
-    return render_template('home.html', brightness=state.brightness,
+    return render_template('index.html', brightness=state.brightness,
                                         program_name=state.program_name)
+
+
+class Brightness(Resource):
+    def get(self):
+        return {'brightness': state.brightness}
+    def post(self):
+        state.set_brightness(int(request.form['brightness']))
+        return {'brightness': state.brightness}
+
+class Program(Resource):
+    def get(self):
+        return {'program': state.program_name}
+    def post(self):
+        state.set_brightness(int(request.form['program']))
+        return {'program': state.program_name}
+
+api.add_resource(Brightness, '/api/brightness')
+api.add_resource(Program, '/api/program')
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
