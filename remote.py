@@ -33,6 +33,9 @@ class State:
         if self.program_name is not None:
             path = 'programs/' + self.program_name + '.py'
             self.process = subprocess.Popen([sys.executable, path])
+            return True
+        else:
+            return False
 
 # Initialize unicorn state
 state = State(brightness=50, program_name=None)
@@ -57,19 +60,21 @@ def index(brightness=state.brightness,
 class Brightness(Resource):
     def get(self):
         return {'brightness': state.brightness}
-    def post(self):
-        state.set_brightness(int(request.form['brightness']))
+    def put(self, level):
+        state.set_brightness(int(level))
         return {'brightness': state.brightness}
 
 class Program(Resource):
     def get(self):
         return {'program': state.program_name}
-    def post(self):
-        state.set_brightness(int(request.form['program']))
-        return {'program': state.program_name}
+    def put(self, name):
+        if state.set_program(name):
+            return {'program': state.program_name}
+        else:
+            return {'program': 'ERROR program not found'}
 
-api.add_resource(Brightness, '/api/brightness')
-api.add_resource(Program, '/api/program')
+api.add_resource(Brightness, '/api/brightness/<level>')
+api.add_resource(Program, '/api/program/<name>')
 
 
 if __name__ == '__main__':
