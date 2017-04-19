@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, abort
 import unicornhat as unicorn
 import argparse
 import json
 import subprocess
 import sys
+
+PROGRAMS_LIST = ['rainbow', 'snow']
 
 app = Flask(__name__)
 api = Api(app)
@@ -25,12 +27,12 @@ class State:
     def set_program(self, program_name):
         self.program_name = program_name
 
-        # Terminate running program
+        # Stop old program
         if self.process is not None:
             self.process.terminate()
 
         # Start new program
-        if self.program_name is not None:
+        if self.program_name in PROGRAMS_LIST:
             path = 'programs/' + self.program_name + '.py'
             self.process = subprocess.Popen([sys.executable, path])
             return True
@@ -57,25 +59,34 @@ def index(brightness=state.brightness,
                                         program_name=state.program_name)
 
 
-class Brightness(Resource):
-    def get(self):
-        return {'brightness': state.brightness}
+class BrightnessPut(Resource):
     def put(self, level):
-        state.set_brightness(int(level))
-        return {'brightness': state.brightness}
+        level_int = int(level)
+        if level_int >= 0 and level_int <= 100:
+            state.set_brightness(level_int)
+            return {'brightness': state.brightness}
+        else:
+            abort(404, message="Brigthness must be an integer between 0 and 100")
 
-class Program(Resource):
-    def get(self):
-        return {'program': state.program_name}
+class ProgramPut(Resource):
     def put(self, name):
         if state.set_program(name):
             return {'program': state.program_name}
         else:
-            return {'program': 'ERROR program not found'}
+            abort(404, message="Program {} doesn't exist".format(name))
 
-api.add_resource(Brightness, '/api/brightness/<level>')
-api.add_resource(Program, '/api/program/<name>')
+class BrightnessGet(Resource):
+    def get(self):
+        return {'brightness': state.brightness}
 
+class ProgramGet(Resource):
+    def get(self):
+        return {'program': state.program_name}
+
+api.add_resource(BrightnessPut, '/api/brightness/<level>')
+api.add_resource(BrightnessGet, '/api/brightness')
+api.add_resource(ProgramPut, '/api/program/<name>')
+api.add_resource(ProgramGet, '/api/program')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

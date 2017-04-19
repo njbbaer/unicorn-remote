@@ -5,6 +5,8 @@ from time import sleep
 
 import unicornhat as unicorn
 
+print('Running snow...')
+
 
 unicorn.set_layout(unicorn.AUTO)
 unicorn.rotation(0)

@@ -5,6 +5,8 @@ import time
 
 import unicornhat as unicorn
 
+print('Running rainbow...')
+
 unicorn.set_layout(unicorn.AUTO)
 unicorn.rotation(0)
 width,height=unicorn.get_shape()
