@@ -2,8 +2,7 @@ import unicornhat as unicorn
 import subprocess
 import sys
 
-
-PROGRAMS_LIST = ['rainbow', 'snow']
+from config import programs_list
 
 
 class State:
@@ -28,8 +27,8 @@ class State:
             self.process.terminate()
 
         # Start new program
-        if self.program_name in PROGRAMS_LIST:
-            path = 'programs/' + self.program_name + '.py'
+        if self.program_name in programs_list:
+            path = programs_list[program_name]
             self.process = subprocess.Popen([sys.executable, path])
             return True
         else:

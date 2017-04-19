@@ -1,21 +1,26 @@
 <!doctype html>
 
+
 <head>
     <title>Unicorn Remote</title>
     <meta name="viewport" content="width=device-width">
 </head>
 
-<h1>Unicorn Remote</h1>
 
-<form action="/" method="post">
-    <h3>Brightness: {{ brightness }}</h3>
-    <input type="number" name="brightness" style="width: 40px" 
-        min="0" max="100" value={{ brightness }}>
-    <input type="submit" value="Set">
-</form>
+<body>
+    <h1>Unicorn Remote</h1>
 
-<form action="/" method="post">
-    <h3>Program: {{ program_name }}</h3>
-    <input type="submit" name="program" value="rainbow">
-    <input type="submit" name="program" value="snow">
-</form>
+    <form action="/" method="post">
+        <h3>Brightness: {{ brightness }}</h3>
+        <input type="number" name="brightness" style="width: 40px" 
+            min="0" max="100" value={{ brightness }}>
+        <input type="submit" value="Set">
+    </form>
+
+    <form id="program-buttons" action="/" method="post">
+        <h3>Program: {{ program_name }}</h3>
+        {% for program in programs_list %}
+            <input type="submit" name="program" value={{program}}>
+        {% endfor %}
+    </form>
+</body>

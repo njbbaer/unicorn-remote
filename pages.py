@@ -1,10 +1,12 @@
 from flask import render_template, request, Blueprint
+import json
+
 from state import state
+from config import programs_list
 
 index = Blueprint('index', __name__, template_folder='templates')
 @index.route('/', methods=['POST', 'GET'])
-def show(brightness=state.brightness, 
-         program=state.program_name):
+def show():
 
     if request.method == 'POST':
 
@@ -15,4 +17,5 @@ def show(brightness=state.brightness,
             state.set_program(request.form['program'])
             
     return render_template('index.html', brightness=state.brightness,
-                                        program_name=state.program_name)
+                                         program_name=state.program_name,
+                                         programs_list=list(programs_list.keys()))
