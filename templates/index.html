@@ -1,6 +1,13 @@
 <!doctype html>
 
 
+<style>
+    .indent {
+       margin-left: 20px
+    }
+</style>
+
+
 <head>
     <title>Unicorn Remote</title>
     <meta name="viewport" content="width=device-width">
@@ -12,15 +19,21 @@
 
     <form action="/" method="post">
         <h3>Brightness: {{ brightness }}</h3>
-        <input type="number" name="brightness" style="width: 40px" 
-            min="0" max="100" value={{ brightness }}>
-        <input type="submit" value="Set">
+        <div class="indent">
+            <input type="number" name="brightness" style="width: 40px" 
+                min="0" max="100" value={{ brightness }}>
+            <input type="submit" value="Set">
+        </div>
     </form>
 
     <form id="program-buttons" action="/" method="post">
         <h3>Program: {{ program_name }}</h3>
-        {% for program in programs_list %}
-            <input type="submit" name="program" value={{program}}>
-        {% endfor %}
+        <div class="indent">
+            {% for program in programs_list %}
+                <div style="padding: 5px">
+                    <input type="submit" name="program" value={{program}}>
+                </div>
+            {% endfor %}
+        </div>
     </form>
 </body>
