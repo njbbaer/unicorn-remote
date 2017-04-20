@@ -9,7 +9,7 @@ print('Running snow...')
 
 
 unicorn.set_layout(unicorn.AUTO)
-unicorn.rotation(0)
+unicorn.rotation(90)
 width,height=unicorn.get_shape()
 
 
