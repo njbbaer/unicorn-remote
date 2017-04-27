@@ -11,18 +11,6 @@ except ImportError:
 import unicornhat as unicorn
 
 
-print("""Figlet
-
-You should see scrolling text that is defined in the TXT variable.
-
-If the text moves in the wrong direction, change the rotation from 0 to 180.
-
-Text output is kind of limited on a pHAT of course because most letters don't
-fit on the small display of 4x8.
-""")
-
-
-
 def run():
     width,height=unicorn.get_shape()
     

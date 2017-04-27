@@ -5,16 +5,6 @@ import time
 
 import unicornhat as unicorn
 
-
-print("""Game Of Life
-
-Runs Conway's Game Of Life on your Unicorn HAT, this starts 
-with a random spread of life, so results may vary!
-
-If you're using a Unicorn HAT and only half the screen lights up, 
-edit this example and  change 'unicorn.AUTO' to 'unicorn.HAT' below.
-""")
-
 try:
     xrange
 except NameError:
@@ -83,7 +73,7 @@ def run():
     while not life.all_dead():
         life.next_generation()
         life.show_board()
-        time.sleep(0.1)
+        time.sleep(0.05)
 
 
 if __name__ == '__main__':

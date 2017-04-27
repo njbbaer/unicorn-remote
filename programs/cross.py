@@ -6,15 +6,6 @@ from random import randint
 import unicornhat as unicorn
 
 
-print("""Cross
-
-You should see randomly coloured dots crossing paths with each other.
-
-If you're using a Unicorn HAT and only half the screen lights up, 
-edit this example and  change 'unicorn.AUTO' to 'unicorn.HAT' below.
-""")
-
-
 def run():
     width,height=unicorn.get_shape()
 

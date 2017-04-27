@@ -16,7 +16,6 @@ def show():
         state.set_program(request.form['program'], params)
             
     return render_template('index.html', 
-        programs_list=list(programs_list.keys()),
         brightness = state.get_brightness(),
         rotation = state.get_rotation(),
     )

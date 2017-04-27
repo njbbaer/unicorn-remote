@@ -3,7 +3,6 @@ import subprocess
 import sys
 from threading import Thread
 
-from config import programs_list
 from programs.matrix import run
 
 
@@ -35,21 +34,18 @@ class State:
         self.stop_program()
 
         # Start new program
-        if self.program_name in programs_list:
-            path = programs_list[program_name]
-            args = [sys.executable, path]
-            for k, v in params.items():
-                args.extend(['--' + k, v])
-            self.process = subprocess.Popen(args)
-            return True
-        else:
-            return False
+        path = 'programs/' + program_name + '.py'
+        args = [sys.executable, path]
+        for k, v in params.items():
+            args.extend(['--' + k, v])
+        self.process = subprocess.Popen(args)
+        return True
 
 
     def stop_program(self):
-        print("Stopping " + self.program_name)
         if self.process is not None:
             self.process.terminate()
+            print("Stopped " + self.program_name)
 
 
 # Initialize unicorn state
