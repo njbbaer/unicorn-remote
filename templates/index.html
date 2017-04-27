@@ -2,9 +2,9 @@
 
 
 <style>
-    .indent {
-       margin-left: 20px
-    }
+    div { padding: 5px; }
+    form { margin-left: 20px }
+    p { display: inline }
 </style>
 
 
@@ -18,22 +18,20 @@
     <h1>Unicorn Remote</h1>
 
     <form action="/" method="post">
-        <h3>Brightness: {{ brightness }}</h3>
-        <div class="indent">
-            <input type="number" name="brightness" style="width: 40px" 
-                min="0" max="100" value={{ brightness }}>
-            <input type="submit" value="Set">
+        <div>
+            <p>Brightness:</p>
+            <input name="brightness" type="number" step="0.1" style="width: 40px" min="0" max="1" value={{brightness}}>
+            <p>(0 - 1)</p>
         </div>
-    </form>
-
-    <form id="program-buttons" action="/" method="post">
-        <h3>Program: {{ program_name }}</h3>
-        <div class="indent">
-            {% for program in programs_list %}
-                <div style="padding: 5px">
-                    <input type="submit" name="program" value={{program}}>
-                </div>
-            {% endfor %}
+        <div>
+            <p>Rotation:</p>
+            <input name="rotation" type="number" step="90" style="width: 40px" min="0" max="270" value={{rotation}}>
+            <p>(0, 90, 180, 270)</p>
         </div>
+        {% for program in programs_list %}
+            <div>
+                <input type="submit" name="program" value={{program}}>
+            </div>
+        {% endfor %}
     </form>
 </body>
