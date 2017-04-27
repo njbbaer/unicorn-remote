@@ -1,9 +1,12 @@
 import unicornhat as unicorn
 import subprocess
 import sys
+import os
 from threading import Thread
 
 from programs.matrix import run
+
+
 
 
 class State:
@@ -34,7 +37,8 @@ class State:
         self.stop_program()
 
         # Start new program
-        path = 'programs/' + program_name + '.py'
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        path = dir_path + '/programs/' + program_name + '.py'
         args = [sys.executable, path]
         for k, v in params.items():
             args.extend(['--' + k, v])
