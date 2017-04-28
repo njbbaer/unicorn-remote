@@ -1,6 +1,18 @@
 <!doctype html>
 
 
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    window.onload = function () { 
+        $("[name=program]").val("{{program}}");
+    }
+</script>
+
+
 <style>
     div { padding: 10px; }
     form { margin-left: 20px }
@@ -17,7 +29,7 @@
 <body>
     <h1>Unicorn Remote</h1>
 
-    <form action="/" method="post">
+    <form method="post" action="/">
 
         <div>
             <p>Brightness:</p>
@@ -33,7 +45,6 @@
 
         <div>
             <select name="program">
-                <option selected disabled>Choose program</option>
                 <option value="ascii_pic">ASCII pic</option>
                 <option value="blink_sun">Blink sun</option>
                 <option value="cross">Cross</option>
