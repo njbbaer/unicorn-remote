@@ -48,9 +48,10 @@ class State:
 
     def stop_program(self):
         if self.process is not None:
+
             self.process.terminate()
             print("Stopped " + self.program_name)
 
 
 # Initialize unicorn state
-state = State({'brightness': '0.5', 'rotation': '90'})
+state = State({'brightness': '0.5', 'rotation': '0'})

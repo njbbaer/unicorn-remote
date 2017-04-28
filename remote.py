@@ -1,21 +1,20 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Api
 import argparse
 import atexit
 
 from pages import index
 from state import state
-import api as api_resources
+from api import PostProgram
 
 
 app = Flask(__name__)
 app.register_blueprint(index)
 
+
 api = Api(app)
-api.add_resource(api_resources.BrightnessPut, '/api/brightness/<level>')
-api.add_resource(api_resources.BrightnessGet, '/api/brightness')
-api.add_resource(api_resources.ProgramPut, '/api/program/<name>')
-api.add_resource(api_resources.ProgramGet, '/api/program')
+api.add_resource(PostProgram, '/api/<string:program_name>')
+
 
 def exit_handler():
     state.stop_program
