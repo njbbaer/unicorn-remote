@@ -17,7 +17,7 @@ api.add_resource(PostProgram, '/api/<string:program_name>')
 
 
 def exit_handler():
-    state.stop_program
+    state.stop_program()
 atexit.register(exit_handler)
 
 

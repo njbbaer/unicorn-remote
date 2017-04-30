@@ -22,9 +22,9 @@ def show():
         }
 
         if request.form['submit'] == 'Run':
-            state.set_program(request.form['program'], params)
+            state.start_program(request.form['program'], params)
         elif request.form['submit'] == 'Stop':
-            state.set_program('stop', params)
+            state.stop_program()
       
         return render_template('index.html', 
             program = request.form['program'],

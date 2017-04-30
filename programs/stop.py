@@ -2,4 +2,4 @@
 
 import unicornhat as unicorn
 
-unicorn.brightness(params.brightness)
+unicorn.brightness(0)
