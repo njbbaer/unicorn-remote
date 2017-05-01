@@ -35,7 +35,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-b', '--brightness', action='store', dest='brightness', default=0.5, type=float)
     parser.add_argument('-r', '--rotation', action='store', dest='rotation', default=0, type=int)
-    params = parser.parse_args()
+    params, unknown = parser.parse_known_args()
 
     unicorn.set_layout(unicorn.AUTO)
     unicorn.brightness(params.brightness)

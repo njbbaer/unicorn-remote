@@ -7,16 +7,39 @@
   crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-    window.onload = function () { 
-        $("[name=program]").val("{{program}}");
+
+    function display_params() {
+        if ($("#program-dropdown").val() == "ascii_text") {
+            $("#text-input").show()
+        } else {
+            $("#text-input").hide()
+        }
     }
+
+    window.onload = function () {
+        $("#program-dropdown").change(function(event) {
+            display_params();
+        });
+
+        // Set program dropdown to current program name
+        $("[name=program]").val("{{program}}");
+
+        display_params();
+    }
+
 </script>
 
 
 <style>
-    div { padding: 10px; }
     form { margin-left: 20px }
     p { display: inline }
+    .padded {padding: 10px;}
+
+    .divider {
+        width:10px;
+        height:auto;
+        display:inline-block;
+    }
 </style>
 
 
@@ -31,26 +54,26 @@
 
     <form method="post" action="/">
 
-        <div>
+        <div class="padded">
             <p>Brightness:</p>
             <input name="brightness" type="number" step="0.1" style="width: 40px" min="0" max="1" value={{brightness}}>
             <p>(0.0 - 1.0)</p>
         </div>
 
-        <div>
+        <div class="padded">
             <p>Rotation:</p>
             <input name="rotation" type="number" step="90" style="width: 40px" min="0" max="270" value={{rotation}}>
             <p>(0, 90, 180, 270)</p>
         </div>
 
-        <div>
-            <select name="program">
-                <option value="ascii_pic">ASCII pic</option>
+        <div class="padded">
+            <select name="program" id="program-dropdown">
+                <option value="ascii_text">ASCII text</option>
                 <option value="blink_sun">Blink sun</option>
                 <option value="cross">Cross</option>
                 <option value="demo">Demo</option>
-                <option value="figlet">Figlet</option>
                 <option value="game_of_life">Game of Life</option>
+                <option value="grid_pic">Grid pic</option>
                 <option value="matrix">Matrix</option>
                 <option value="psychedelia">Psychedelia</option>
                 <option value="rain">Rain</option>
@@ -63,7 +86,17 @@
             </select>
         </div>
 
-        <div><input type="submit" name="submit" value="Run"></div>
-        <div><input type="submit" name="submit" value="Stop"></div>
+        <div id="text-input" class="padded">
+            <p>Text:</p>
+            <input name="text" type="text" step="90" value="{{text}}">
+        </div>
+
+        <div class="padded">
+            <input type="submit" name="submit" value="Run">
+            <div class="divider"></div>
+            <input type="submit" name="submit" value="Stop">
+        </div>
+
     </form>
+
 </body>

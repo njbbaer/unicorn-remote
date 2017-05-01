@@ -10,16 +10,23 @@ def show():
 
     if request.method == 'GET':
         return render_template('index.html', 
-            program = 'ascii_pic',
+            program = 'ascii_text',
             brightness = 0.5,
-            rotation = 90,
+            rotation = 0,
+            text = 'Hello, World!',
         )
     
     elif request.method == 'POST':
-        params = {
-            'brightness': request.form['brightness'],
-            'rotation': request.form['rotation'],
-        }
+        params = {}
+
+        if 'brightness' in request.form:
+            params['brightness'] = request.form['brightness']
+
+        if 'rotation' in request.form:
+            params['rotation'] = request.form['rotation']
+
+        if 'text' in request.form:
+            params['text'] = request.form['text']
 
         if request.form['submit'] == 'Run':
             state.start_program(request.form['program'], params)
@@ -30,4 +37,5 @@ def show():
             program = request.form['program'],
             brightness = request.form['brightness'],
             rotation = request.form['rotation'],
+            text = request.form['text'],
         )
