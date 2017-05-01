@@ -30,7 +30,7 @@ def run():
                 r = int(rgb[0]*255.0)
                 g = int(rgb[1]*255.0)
                 b = int(rgb[2]*255.0)
-                unicorn.set_pixel(y, x, r, g, b)
+                unicorn.set_pixel(8-x-1, 8-y-1, r, g, b)
         unicorn.show()
         time.sleep(0.05)
 

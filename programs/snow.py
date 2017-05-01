@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
     unicorn.set_layout(unicorn.AUTO)
     unicorn.brightness(params.brightness)
-    unicorn.rotation(params.rotation)
+    unicorn.rotation((params.rotation+90)%270)
 
     import sys, os
     file_name =  os.path.basename(sys.argv[0])
