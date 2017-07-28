@@ -1,6 +1,7 @@
 from flask import request
 from flask_restful import Resource, abort
-from state import state
+
+from app.state import state
 
 
 class PostProgram(Resource):

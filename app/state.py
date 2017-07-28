@@ -1,10 +1,6 @@
-import unicornhat as unicorn
 import subprocess
 import sys
 import os
-from threading import Thread
-
-from programs.matrix import run
 
 
 class State:
@@ -12,7 +8,6 @@ class State:
 
     def __init__(self):
         self.process = None
-
 
     def start_program(self, program_name, params=None):
 
@@ -33,7 +28,6 @@ class State:
             return True
         else:
             return False
-
 
     def stop_program(self):
         self.start_program('stop')
