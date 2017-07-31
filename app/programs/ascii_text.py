@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from time import sleep
 from sys import exit
 
@@ -11,7 +9,8 @@ except ImportError:
 import unicornhat as unicorn
 
 
-def run(text):
+def run(params):
+    text = params["text"]
     width,height=unicorn.get_shape()
 
     figletText = figlet_format(text+'  ', "banner", width=1000) # banner font generates text with heigth 7
@@ -36,24 +35,3 @@ def run(text):
     while True:
         step()
         sleep(0.1)
-
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-b', '--brightness', action='store', dest='brightness', default=0.5, type=float)
-    parser.add_argument('-r', '--rotation', action='store', dest='rotation', default=0, type=int)
-    parser.add_argument('-t', '--text', action='store', dest='text', type=str)
-    params, unknown = parser.parse_known_args()
-
-    print(params)
-    
-    unicorn.set_layout(unicorn.AUTO)
-    unicorn.brightness(params.brightness)
-    unicorn.rotation(params.rotation)
-
-    import sys, os
-    file_name =  os.path.basename(sys.argv[0])
-    print('Running {}...'.format(file_name))
-
-    run(params.text)

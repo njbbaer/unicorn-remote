@@ -18,5 +18,4 @@ class PostProgram(Resource):
                 if not int(args['rotation']) in [0, 90, 180, 270]:
                     abort(404, error="Rotation must be 0, 90, 180, or 270 degrees")
 
-            if not state.start_program(program_name, args):
-                abort(404, error="The selected program was not found")
+            state.start_program(program_name, args)

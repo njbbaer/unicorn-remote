@@ -1,10 +1,8 @@
-#!/usr/bin/env python
-
 from time import sleep
 import unicornhat as unicorn
 
 
-def run():
+def run(params):
     width,height=unicorn.get_shape()
 
     # Every line needs to be exactly 8 characters
@@ -46,21 +44,3 @@ def run():
     while True:
         step()
         sleep(0.2)
-
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-b', '--brightness', action='store', dest='brightness', default=0.5, type=float)
-    parser.add_argument('-r', '--rotation', action='store', dest='rotation', default=0, type=int)
-    params, unknown = parser.parse_known_args()
-
-    unicorn.set_layout(unicorn.AUTO)
-    unicorn.brightness(params.brightness)
-    unicorn.rotation(params.rotation)
-
-    import sys, os
-    file_name =  os.path.basename(sys.argv[0])
-    print('Running {}...'.format(file_name))
-
-    run()

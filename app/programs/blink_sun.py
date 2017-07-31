@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import unicornhat as unicorn
 import time, colorsys
 
@@ -8,7 +6,7 @@ try:
 except ImportError:
     exit("This script requires numpy")
 
-def run():
+def run(params):
     def make_gaussian(fwhm):
         x = np.arange(0, 8, 1, float)
         y = x[:, np.newaxis]
@@ -16,7 +14,6 @@ def run():
         fwhm = fwhm
         gauss = np.exp(-4 * np.log(2) * ((x - x0) ** 2 + (y - y0) ** 2) / fwhm ** 2)
         return gauss
-
 
     fwhm = 0
     while True:
@@ -41,21 +38,3 @@ def run():
                 unicorn.set_pixel(x, y, r, g, b)
         unicorn.show()
         time.sleep(0.05)
-
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-b', '--brightness', action='store', dest='brightness', default=0.5, type=float)
-    parser.add_argument('-r', '--rotation', action='store', dest='rotation', default=0, type=int)
-    params, unknown = parser.parse_known_args()
-
-    unicorn.set_layout(unicorn.AUTO)
-    unicorn.brightness(params.brightness)
-    unicorn.rotation(params.rotation)
-
-    import sys, os
-    file_name =  os.path.basename(sys.argv[0])
-    print('Running {}...'.format(file_name))
-
-    run()
