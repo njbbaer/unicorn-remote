@@ -25,7 +25,7 @@ git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
 
 3. Install dependencies:
 ```
-pip -r install requirements.txt
+python setup.py install
 ```
 
 4. Start the Unicorn Remote:
