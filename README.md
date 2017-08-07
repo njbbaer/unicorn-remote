@@ -58,6 +58,12 @@ Control the Unicorn HAT programmatically by placing a POST request to the remote
 POST http://127.0.0.1:5000/api/matrix/?brightness=0.5&rotation=90
 ```
 
+## Testing
+Run the test suite.
+```
+sudo python -m unittest
+```
+
 ## Contribute
 * **Star this repository** to increase expose.
 * Report bugs and request features as GitHub issues.
