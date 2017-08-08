@@ -27,9 +27,9 @@ def run(params):
                 hPos = (i-h) % textWidth
                 chr = textMatrix[w][hPos]
                 if chr == ' ':
-                    unicorn.set_pixel(w, h, 0, 0, 0)
+                    unicorn.set_pixel(h, 6-w, 0, 0, 0)
                 else:
-                    unicorn.set_pixel(w, h, 255, 0, 0)
+                    unicorn.set_pixel(h, 6-w, 255, 0, 0)
         unicorn.show()
 
     while True:
