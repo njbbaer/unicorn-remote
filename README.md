@@ -3,16 +3,16 @@
 Unicorn Remote is a Python web application designed to run on a Raspberry Pi with attached Unicorn HAT LED matrix. Users can run animated programs on the HAT from a web interface or with the REST API.
 
 The Unicorn HAT is available from Pimoroni:  
-http://shop.pimoroni.com/products/unicorn-hat
+https://shop.pimoroni.com/products/unicorn-hat
 
 I highly recommend this case:  
 https://shop.pimoroni.com/products/pibow-for-raspberry-pi-3  
 With a diffuser:  
 https://shop.pimoroni.com/products/pibow-modification-layers  
-Optionally, add a QR code or NFC chip to share the web address.
+Optionally, add a QR code or NFC chip to share the web ui address.
+
 
 ## Setup
-
 1. Disable analog audio output. Analog audio inteferes with the Unicorn HAT. In your `/boot/config.txt` comment the line:
 ```
 #dtparam=audio=on
@@ -25,18 +25,20 @@ git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
 
 3. Install dependencies:
 ```
-python setup.py install
+sudo python3 setup.py install
 ```
 
 4. Start the Unicorn Remote:
 ```
-sudo python run.py
+sudo python3 run.py
 ```
-*Note:* Must be run with `sudo` or root user
+*Note:* Python must be run as root
+
 
 #### Optional Arguments
-[`-d`, `--debug`] enable debugging mode  
-[`-p`, `--port` `<port>`] set port number (default 5000)
+`-d` `--debug` enable debugging mode  
+`-p` `--port` `<port>` set port number (default 5000)
+
 
 ## Web Interface
 Visit the web interface by directing a browser to the server's address.
@@ -48,24 +50,29 @@ http://127.0.0.1:5000
 * Choose a program from the dropdown list.
 * Press `Run` to start the program, and `Stop` to end it.
 
-## RESTful API
 
-Control the Unicorn HAT programmatically by placing a POST request to the remote's API.
+## REST API
+Start a program by placing a PUT request:
 ```
-<ip-address>:<port>/api/<program>/?<parameter>=<value>
+PUT /api/program/<program_name>
 ```
+* All programs use the optional query parameters `brightness` and `rotatation`. Some take additional parameters (ex. `ascii_text` requires a value for `text`)
+
+Stop the currently running program:
 ```
-POST http://127.0.0.1:5000/api/matrix/?brightness=0.5&rotation=90
+DELETE /api/program
 ```
+
 
 ## Testing
 Run the test suite.
 ```
-sudo python -m unittest
+sudo python3 -m unittest
 ```
 
+
 ## Contribute
-* **Star this repository** to increase expose.
-* Report bugs and request features as GitHub issues.
+* **Star this repository**
+* Give feedback, report bugs, and request features as GitHub issues.
 * Improve the repository and submit a pull request.
 
