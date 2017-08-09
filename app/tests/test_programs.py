@@ -19,7 +19,7 @@ class TestPrograms(unittest.TestCase):
         from app.programs.cheertree import run
         self.program_helper(run)
 
-    def test_crss(self):
+    def test_cross(self):
         from app.programs.cross import run
         self.program_helper(run)
 
