@@ -3,8 +3,6 @@ from flask_restful import Resource, abort
 
 from app.state import state
 
-print("IMPORTED")
-
 
 class SetProgram(Resource):
 
