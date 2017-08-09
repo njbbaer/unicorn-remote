@@ -56,37 +56,37 @@
 
         <div class="dropdown">
           <div class="btn-group" role="group">
-            <button class="btn btn-lg btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown">
+            <button id="programs-dropdown" class="btn btn-lg btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown">
               Select a Program
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">Program One</a></li>
-              <li><a href="#">Program Two</a></li>
-              <li><a href="#">Program Three</a></li>
+              <li><a href="#" data-value="p1">Program One</a></li>
+              <li><a href="#" data-value="p2">Program Two</a></li>
+              <li><a href="#" data-value="p3">Program Three</a></li>
             </ul>
           </div>
         </div>
 
         <h4>Brightness</h4>
-        <input id="brightness" data-slider-id='brightnessSlider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.1" data-slider-value="0.5"/>
+        <input id="brightness-slider" data-slider-id='brightnessSlider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.1" data-slider-value="0.5"/>
 
         <h4>Rotation</h4>
         <div class="btn-group btn-group-lg" data-toggle="buttons">
           <label class="btn btn-default active">
-            <input type="radio" name="options" value=0 autocomplete="off" checked>
+            <input type="radio" name="rotation" value=0 autocomplete="off" checked>
             0
           </label>
           <label class="btn btn-default">
-            <input type="radio" name="options" value=90 autocomplete="off">
+            <input type="radio" name="rotation" value=90 autocomplete="off">
             90
           </label>
           <label class="btn btn-default">
-            <input type="radio" name="options" value=180 autocomplete="off">
+            <input type="radio" name="rotation" value=180 autocomplete="off">
             180
           </label>
           <label class="btn btn-default">
-            <input type="radio" name="options" value=270 autocomplete="off">
+            <input type="radio" name="rotation" value=270 autocomplete="off">
             270
           </label>
         </div>
