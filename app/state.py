@@ -9,7 +9,7 @@ class State:
     ''' Handles the Unicorn HAT state'''
 
     def __init__(self):
-        self.process = None
+        self._process = None
 
     def start_program(self, name, params={}):
         self.stop_program()
@@ -21,12 +21,12 @@ class State:
             unicornhat.rotation(int(params["rotation"]))
 
         program = importlib.import_module("app.programs." + name)
-        self.process = multiprocessing.Process(target=program.run, args=(params,))
-        self.process.start()
+        self._process = multiprocessing.Process(target=program.run, args=(params,))
+        self._process.start()
 
     def stop_program(self):
-        if self.process is not None:
-            self.process.terminate()
+        if self._process is not None:
+            self._process.terminate()
         unicornhat.show()
 
 
