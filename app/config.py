@@ -1,62 +1,62 @@
 programs = {
     "ascii_text": {
         "title": "ASCII Text",
-        "path": "programs/ascii_text.py",
+        "module": "app.programs.ascii_text",
     },
     "blink_sun": {
         "title": "Blink Sun",
-        "path": "programs/blink_sun.py"
+        "module": "app.programs.blink_sun"
     },
     "cheertree": {
         "title": "Cheertree",
-        "path": "programs/cheertree.py"
+        "module": "app.programs.cheertree"
     },
     "cross": {
         "title": "Cross",
-        "path": "programs/cross.py"
+        "module": "app.programs.cross"
     },
     "demo": {
         "title": "Demo",
-        "path": "programs/demo.py"
+        "module": "app.programs.demo"
     },
     "dna": {
         "title": "DNA",
-        "path": "programs/dna.py"
+        "module": "app.programs.dna"
     },
     "game_of_life": {
         "title": "Game of Life",
-        "path": "programs/game_of_life.py"
+        "module": "app.programs.game_of_life"
     },
     "matrix": {
         "title": "Matrix",
-        "path": "programs/matrix.py"
+        "module": "app.programs.matrix"
     },
     "psychedelia": {
         "title": "Psychedelia",
-        "path": "programs/psychedelia.py"
+        "module": "app.programs.psychedelia"
     },
     "rain": {
         "title": "Rain",
-        "path": "programs/rain.py"
+        "module": "app.programs.rain"
     },
     "random_blinky": {
         "title": "Random Blinky",
-        "path": "programs/random_blinky.py"
+        "module": "app.programs.random_blinky"
     },
     "random_sparkles": {
         "title": "Random Sparkles",
-        "path": "programs/random_sparkles.py"
+        "module": "app.programs.random_sparkles"
     },
     "simple": {
         "title": "Simple",
-        "path": "programs/simple.py"
+        "module": "app.programs.simple"
     },
     "snow": {
         "title": "Snow",
-        "path": "programs/snow.py"
+        "module": "app.programs.snow"
     },
     "trig": {
         "title": "Trig",
-        "path": "programs/trig.py"
+        "module": "app.programs.trig"
     }
 }
