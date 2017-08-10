@@ -10,6 +10,8 @@ from app.api import SetProgram, StopProgram
 app = Flask(__name__)
 app.register_blueprint(index)
 
+app.config['ERROR_404_HELP'] = False
+
 api = Api(app)
 api.add_resource(SetProgram, '/api/program/<string:program_name>')
 api.add_resource(StopProgram, '/api/program')

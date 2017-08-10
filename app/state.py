@@ -17,7 +17,7 @@ class State:
         try:
             program = app.config.programs[name]
         except KeyError:
-            raise KeyError("Program '{}' was not found".format(name))
+            raise ProgramNotFound(name)
 
         self.stop_program()
 
@@ -35,6 +35,10 @@ class State:
         if self._process is not None:
             self._process.terminate()
         unicornhat.show()
+
+
+class ProgramNotFound(Exception):
+    pass
 
 
 state = State()
