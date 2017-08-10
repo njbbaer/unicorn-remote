@@ -13,7 +13,7 @@ app.register_blueprint(index)
 app.config['ERROR_404_HELP'] = False
 
 api = Api(app)
-api.add_resource(SetProgram, '/api/program/<string:program_name>')
+api.add_resource(SetProgram, '/api/program/<string:program>')
 api.add_resource(StopProgram, '/api/program')
 
 atexit.register(state.stop_program)
