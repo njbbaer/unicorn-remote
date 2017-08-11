@@ -3,10 +3,6 @@ programs = {
         "title": "ASCII Text",
         "module": "app.programs.ascii_text",
     },
-    "blink_sun": {
-        "title": "Blink Sun",
-        "module": "app.programs.blink_sun"
-    },
     "cheertree": {
         "title": "Cheertree",
         "module": "app.programs.cheertree"
@@ -38,6 +34,10 @@ programs = {
     "rain": {
         "title": "Rain",
         "module": "app.programs.rain"
+    },
+    "rainbow": {
+        "title": "Rainbow",
+        "module": "app.programs.rainbow"
     },
     "random_blinky": {
         "title": "Random Blinky",
