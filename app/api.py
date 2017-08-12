@@ -1,13 +1,18 @@
 from flask import request
-from flask_restful import Resource, abort
+from flask_restful import Resource, abort, reqparse
 
 from app.state import state, ProgramNotFound
+
 
 
 class SetProgram(Resource):
 
     def put(self, program):
-            args = request.args
+            parser = reqparse.RequestParser()
+            parser.add_argument('brightness', type=float)
+            parser.add_argument('rotation', type=int)
+            args = parser.parse_args()
+
             try:
                 state.start_program(program, args)
             except ProgramNotFound as e:
