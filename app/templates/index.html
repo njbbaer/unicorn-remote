@@ -61,7 +61,9 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a data-value="demo">demo</a></li>
+              {% for program_name, program in programs.items() %}
+                <li><a data-value={{ program_name }}>{{ program["title"] }}</a></li>
+              {% endfor %}
             </ul>
           </div>
         </div>
