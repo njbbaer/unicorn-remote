@@ -19,8 +19,6 @@ class State:
 
         self.stop_program()
 
-        print(params)
-
         if params.get("brightness"):
             unicornhat.brightness(float(params["brightness"]))
 
