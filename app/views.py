@@ -2,7 +2,25 @@ from flask import render_template, request, Blueprint
 import json
 
 from app.state import state
-from app.config import programs
+
+
+PROGRAMS_LIST = [
+    ["ascii_text",      "ASCII Text"],
+    ["cheertree",       "Cheertree"],
+    ["cross",           "Cross"],
+    ["demo",            "Demo"],
+    ["dna",             "DNA"],
+    ["game_of_life",    "Game of Life"],
+    ["matrix",          "Matrix"],
+    ["psychedelia",     "Psychedelia"],
+    ["rain",            "Rain"],
+    ["rainbow",         "Rainbow"],
+    ["random_blinky",   "Random Blinky"],
+    ["random_sparkles", "Random Sparkles"],
+    ["simple",          "Simple"],
+    ["snow",            "Snow"],
+    ["tri",             "Trig"],
+]
 
 
 index = Blueprint('index', __name__, template_folder='templates')
@@ -10,4 +28,4 @@ index = Blueprint('index', __name__, template_folder='templates')
 def show():
     
     if request.method == 'GET':
-         return render_template('index.html', programs=programs)
+         return render_template('index.html', programs_list=PROGRAMS_LIST)

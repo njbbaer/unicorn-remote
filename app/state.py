@@ -4,8 +4,6 @@ import importlib
 import sys
 import os
 
-import app.config
-
 
 class State:
     ''' Handles the Unicorn HAT state'''
@@ -15,8 +13,8 @@ class State:
 
     def start_program(self, name, params={}):
         try:
-            program = app.config.programs[name]
-        except KeyError:
+            program = importlib.import_module("app.programs." + name)
+        except ImportError:
             raise ProgramNotFound(name)
 
         self.stop_program()
@@ -27,7 +25,6 @@ class State:
         if "rotation" in params:
             unicornhat.rotation(int(params["rotation"]))
 
-        program = importlib.import_module(program["module"])
         self._process = multiprocessing.Process(target=program.run, args=(params,))
         self._process.start()
 
