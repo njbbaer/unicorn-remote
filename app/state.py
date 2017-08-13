@@ -19,10 +19,12 @@ class State:
 
         self.stop_program()
 
-        if "brightness" in params:
+        print(params)
+
+        if params.get("brightness"):
             unicornhat.brightness(float(params["brightness"]))
 
-        if "rotation" in params:
+        if params.get("rotation"):
             unicornhat.rotation(int(params["rotation"]))
 
         self._process = multiprocessing.Process(target=program.run, args=(params,))
