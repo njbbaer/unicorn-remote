@@ -10,7 +10,11 @@ import unicornhat as unicorn
 
 
 def run(params):
-    text = params["text"]
+    if "text" in params:
+        text = params["text"]
+    else:
+        text = "Hello, World!"
+
     width,height=unicorn.get_shape()
 
     figletText = figlet_format(text+'  ', "banner", width=1000) # banner font generates text with heigth 7
