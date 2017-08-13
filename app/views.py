@@ -19,7 +19,7 @@ PROGRAMS_LIST = [
     ["random_sparkles", "Random Sparkles"],
     ["simple",          "Simple"],
     ["snow",            "Snow"],
-    ["tri",             "Trig"],
+    ["trig",            "Trig"],
 ]
 
 
