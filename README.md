@@ -25,14 +25,14 @@ git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
 
 3. Install dependencies:
 ```
-sudo python3 setup.py install
+sudo pip3 install -r requirements.txt
 ```
 
 4. Start the Unicorn Remote:
 ```
 sudo python3 run.py
 ```
-*Note:* Python must be run as root
+*Note:* Must be run as root
 
 
 #### Optional Arguments
