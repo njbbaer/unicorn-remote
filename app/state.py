@@ -4,6 +4,8 @@ import importlib
 import sys
 import os
 
+import app.programs
+
 
 class State:
     ''' Handles the Unicorn HAT state'''
@@ -13,8 +15,8 @@ class State:
 
     def start_program(self, name, params={}):
         try:
-            program = importlib.import_module("app.programs." + name)
-        except ImportError:
+            program = getattr(app.programs, name)
+        except AttributeError:
             raise ProgramNotFound(name)
 
         self.stop_program()
