@@ -1,5 +1,5 @@
 import multiprocessing
-import unicornhat
+import unicornhathd
 import importlib
 import sys
 import os
