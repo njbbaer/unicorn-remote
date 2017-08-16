@@ -1,10 +1,10 @@
 import multiprocessing
-import unicornhathd
+import unicornhathd as unicornhat
 import importlib
 import sys
 import os
 
-import app.programs
+import app.programs.hd
 
 
 class State:
@@ -15,7 +15,7 @@ class State:
 
     def start_program(self, name, params={}):
         try:
-            program = getattr(app.programs, name)
+            program = getattr(app.programs.hd, name)
         except AttributeError:
             raise ProgramNotFound(name)
 
