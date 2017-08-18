@@ -8,7 +8,6 @@ import unicornhathd
 
 
 def run(params):
-    unicornhathd.rotation(0)
     u_width,u_height = unicornhathd.get_shape()
 
     # Generate a lookup table for 8bit hue to RGB conversion

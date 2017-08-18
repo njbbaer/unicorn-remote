@@ -9,7 +9,6 @@ import unicornhathd
 
 
 def run(params):
-  unicornhathd.rotation(0)
   width, height = unicornhathd.get_shape()
   # buffer to contain candle "heat" data
   candle = [0] * 256

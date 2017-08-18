@@ -12,8 +12,6 @@ def run(params):
     except NameError:
         xrange = range
 
-    unicornhathd.rotation(0)
-    unicornhathd.brightness(0.5)
     width,height=unicornhathd.get_shape()
 
     size = width*height

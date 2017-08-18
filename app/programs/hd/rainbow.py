@@ -9,8 +9,6 @@ import unicornhathd
 
 
 def run(params):
-  unicornhathd.rotation(0)
-
   step = 0
   try:
       while True:

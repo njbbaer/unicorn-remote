@@ -14,7 +14,6 @@ import unicornhathd
 def run(params):
     scale = 3
 
-    unicornhathd.rotation(0)
     width, height = unicornhathd.get_shape()
 
     forest_width = width * scale
