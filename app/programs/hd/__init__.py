@@ -1,1 +1,1 @@
-from . import candle, demo, forest_fire, game_of_life, rainbow, stars
+from . import candle, demo, forest_fire, game_of_life, rainbow, stars, trig

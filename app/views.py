@@ -9,7 +9,8 @@ PROGRAMS_LIST = [
     ["forest_fire", "Forest Fire"],
     ["game_of_life","Game of Life"],
     ["rainbow",     "Rainbow"],
-    ["stars",       "Stars"]
+    ["stars",       "Stars"], 
+    ["trig",         "Trig"]
 ]
 
 # PROGRAMS_LIST = [
