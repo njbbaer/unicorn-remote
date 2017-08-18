@@ -9,14 +9,6 @@ import unicornhathd
 
 
 def run(params):
-  print("""Unicorn HAT HD: Rainbow
-
-  OMG MY EYES.
-
-  Press Ctrl+C to exit!
-
-  """)
-
   unicornhathd.rotation(0)
 
   step = 0

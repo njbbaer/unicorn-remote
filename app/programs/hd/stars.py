@@ -9,14 +9,6 @@ import unicornhathd
 
 
 def run(params):
-  print("""Unicorn HAT HD: Stars
-
-  This example simulates a wooshing star field.
-
-  Press Ctrl+C to exit!
-
-  """)
-
   star_count = 25
   star_speed = 0.05
   stars = []

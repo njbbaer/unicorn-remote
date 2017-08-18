@@ -8,14 +8,6 @@ import unicornhathd
 
 
 def run(params):
-    print("""Unicorn HAT HD: demo.py
-
-    This pixel shading demo transitions between 4 classic graphics demo effects.
-
-    Press Ctrl+C to exit!
-
-    """)
-
     unicornhathd.rotation(0)
     u_width,u_height = unicornhathd.get_shape()
 

@@ -9,14 +9,6 @@ import unicornhathd
 
 
 def run(params):
-  print("""Unicorn HAT HD: Candle
-
-  This example simulates a flickering candle flame.
-
-  Press Ctrl+C to exit!
-
-  """)
-
   unicornhathd.rotation(0)
   width, height = unicornhathd.get_shape()
   # buffer to contain candle "heat" data

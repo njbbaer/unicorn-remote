@@ -12,14 +12,6 @@ import unicornhathd
 
 
 def run(params):
-    print("""Unicorn HAT HD: Forest Fire
-
-    This example simulates a forest fire.
-
-    Press Ctrl+C to exit!
-
-    """)
-
     scale = 3
 
     unicornhathd.rotation(0)

@@ -7,12 +7,6 @@ import unicornhathd
 
 
 def run(params):
-    print("""Unicorn HAT HD: Game Of Life
-
-    Runs Conway's Game Of Life on your Unicorn HAT, this starts 
-    with a random spread of life, so results may vary!
-    """)
-
     try:
         xrange
     except NameError:
