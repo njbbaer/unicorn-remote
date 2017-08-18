@@ -1,7 +1,7 @@
 from flask import render_template, request, Blueprint
 import json
 
-from app.state import state
+from app import state
 
 PROGRAMS_LIST = [
     ["candle",      "Candle"],

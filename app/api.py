@@ -1,8 +1,8 @@
 from flask import request
 from flask_restful import Resource, abort, reqparse
 
-from app.state import state, ProgramNotFound
-
+from app import state
+from app.state import ProgramNotFound
 
 
 class SetProgram(Resource):

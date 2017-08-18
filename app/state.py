@@ -38,6 +38,3 @@ class State:
 
 class ProgramNotFound(Exception):
     pass
-
-
-state = State()
