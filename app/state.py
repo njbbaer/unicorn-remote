@@ -36,10 +36,18 @@ class State:
         self.stop_program()
 
         if params.get("brightness") is not None:
-            self._unicornhat.brightness(float(params["brightness"]))
+            brightness = float(params["brightness"])
+            if 0 <= brightness <= 1:
+                self._unicornhat.brightness(brightness)
+            else:
+                raise ValueError("Brightness must be between 0.0 and 1.0")
 
         if params.get("rotation") is not None:
-            self._unicornhat.rotation(int(params["rotation"]))
+            rotation = int(params["rotation"])
+            if rotation in [0, 90, 180, 270]:
+                self._unicornhat.rotation(rotation)
+            else:
+                raise ValueError("Rotation must be 0, 90, 180 or 270 degrees")
 
         self._process = multiprocessing.Process(target=program.run, args=(params,))
         self._process.start()
