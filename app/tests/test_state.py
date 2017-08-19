@@ -4,18 +4,29 @@ import time
 from app.state import state, ProgramNotFound
 
 
+HD_PROGRAMS_LIST = ["candle", "demo", "forest_fire", "game_of_life", "rainbow", 
+    "stars", "trig"]
+ORIGINAL_PROGRAMS_LIST = ["ascii_text", "cheertree", "cross", "demo", "dna", 
+    "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
+    "random_blinky", "random_sparkles", "simple", "snow", "trig"]
+
+
 class TestState(unittest.TestCase):
 
     def tearDown(self):
         if state._process is not None:
             state._process.terminate()
 
+    def test_start_all_hd(self):
+        state.set_model(is_hd=True)
+        for program in HD_PROGRAMS_LIST:
+            with self.subTest(program=program):
+                r = state.start_program(program)
+                self.assertTrue(state._process.is_alive())
+
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        programs= ["ascii_text", "cheertree", "cross", "demo", "dna", 
-            "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-            "random_blinky", "random_sparkles", "simple", "snow", "trig"]
-        for program in programs:
+        for program in ORIGINAL_PROGRAMS_LIST:
             with self.subTest(program=program):
                 r = state.start_program(program)
                 self.assertTrue(state._process.is_alive())

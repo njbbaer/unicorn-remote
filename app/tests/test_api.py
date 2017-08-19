@@ -4,6 +4,13 @@ from app import create_app
 from app.state import state
 
 
+HD_PROGRAMS_LIST = ["candle", "demo", "forest_fire", "game_of_life", "rainbow", 
+    "stars", "trig"]
+ORIGINAL_PROGRAMS_LIST = ["ascii_text", "cheertree", "cross", "demo", "dna", 
+    "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
+    "random_blinky", "random_sparkles", "simple", "snow", "trig"]
+
+
 class TestAPI(unittest.TestCase):
     
     def setUp(self):
@@ -13,12 +20,16 @@ class TestAPI(unittest.TestCase):
     def tearDown(self):
         state.stop_program()
 
+    def test_start_all_hd(self):
+        state.set_model(is_hd=True)
+        for program in HD_PROGRAMS_LIST:
+            with self.subTest(program=program):
+                r = self.app.put("/api/program/" + program)
+                self.assertEqual(r.status_code, 200)
+
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        programs= ["ascii_text", "cheertree", "cross", "demo", "dna", 
-            "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-            "random_blinky", "random_sparkles", "simple", "snow", "trig"]
-        for program in programs:
+        for program in ORIGINAL_PROGRAMS_LIST:
             with self.subTest(program=program):
                 r = self.app.put("/api/program/" + program)
                 self.assertEqual(r.status_code, 200)
