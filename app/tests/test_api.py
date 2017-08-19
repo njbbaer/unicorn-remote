@@ -1,17 +1,20 @@
 import unittest
 
-from app import app, state
+from app import create_app
+from app.state import state
 
 
 class TestAPI(unittest.TestCase):
     
     def setUp(self):
+        app = create_app()
         self.app = app.test_client()
 
     def tearDown(self):
         state.stop_program()
 
-    def test_start_all(self):
+    def test_start_all_original(self):
+        state.set_model(is_hd=False)
         programs= ["ascii_text", "cheertree", "cross", "demo", "dna", 
             "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
             "random_blinky", "random_sparkles", "simple", "snow", "trig"]

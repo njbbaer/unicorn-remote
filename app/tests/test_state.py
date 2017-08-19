@@ -10,7 +10,8 @@ class TestState(unittest.TestCase):
         if state._process is not None:
             state._process.terminate()
 
-    def test_start_all(self):
+    def test_start_all_original(self):
+        state.set_model(is_hd=False)
         programs= ["ascii_text", "cheertree", "cross", "demo", "dna", 
             "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
             "random_blinky", "random_sparkles", "simple", "snow", "trig"]

@@ -2,7 +2,7 @@ import unittest
 import multiprocessing
 import time
 
-import app.programs
+import app.programs.original
 
 class TestPrograms(unittest.TestCase):
 
@@ -13,49 +13,49 @@ class TestPrograms(unittest.TestCase):
         self.process.terminate()
 
     def test_ascii_text(self):
-        self.program_helper(app.programs.ascii_text.run, { "text": "Hello World" }) 
+        self.program_helper(app.programs.original.ascii_text.run, { "text": "Hello World" }) 
 
     def test_cheertree(self):
-        self.program_helper(app.programs.cheertree.run)
+        self.program_helper(app.programs.original.cheertree.run)
 
     def test_cross(self):
-        self.program_helper(app.programs.cross.run)
+        self.program_helper(app.programs.original.cross.run)
 
     def test_demo(self):
-        self.program_helper(app.programs.demo.run)
+        self.program_helper(app.programs.original.demo.run)
 
     def test_dna(self):
-        self.program_helper(app.programs.dna.run)
+        self.program_helper(app.programs.original.dna.run)
 
     def test_game_of_life(self):
-        self.program_helper(app.programs.game_of_life.run)
+        self.program_helper(app.programs.original.game_of_life.run)
 
     def test_matrix(self):
-        self.program_helper(app.programs.matrix.run)
+        self.program_helper(app.programs.original.matrix.run)
 
     def test_psychedelia(self):
-        self.program_helper(app.programs.psychedelia.run)
+        self.program_helper(app.programs.original.psychedelia.run)
 
     def test_rain(self):
-        self.program_helper(app.programs.rain.run)
+        self.program_helper(app.programs.original.rain.run)
 
     def test_rainbow(self):
-        self.program_helper(app.programs.rainbow.run)
+        self.program_helper(app.programs.original.rainbow.run)
 
     def test_random_blinky(self):
-        self.program_helper(app.programs.random_blinky.run)
+        self.program_helper(app.programs.original.random_blinky.run)
 
     def test_random_sparkles(self):
-        self.program_helper(app.programs.random_sparkles.run)
+        self.program_helper(app.programs.original.random_sparkles.run)
 
     def test_simple(self):
-        self.program_helper(app.programs.simple.run)
+        self.program_helper(app.programs.original.simple.run)
 
     def test_snow(self):
-        self.program_helper(app.programs.snow.run)
+        self.program_helper(app.programs.original.snow.run)
 
     def test_trig(self):
-        self.program_helper(app.programs.trig.run)
+        self.program_helper(app.programs.original.trig.run)
 
 
 if __name__ == '__main__':

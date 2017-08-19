@@ -15,13 +15,16 @@ class State:
 
     def __init__(self, is_hd=True):
         self._process = None
+        self.set_model(is_hd)
 
+
+    def set_model(self, is_hd):
         if is_hd is True:
             self._unicornhat = unicornhathd
             self._app_programs = app.programs.hd
         else:
             self._unicornhat = unicornhat
-            self. app_programs = app.programs.original
+            self._app_programs = app.programs.original
 
 
     def start_program(self, name, params={}):
@@ -41,10 +44,14 @@ class State:
         self._process = multiprocessing.Process(target=program.run, args=(params,))
         self._process.start()
 
+
     def stop_program(self):
         if self._process is not None:
             self._process.terminate()
         self._unicornhat.show()
+
+
+state = State()
 
 
 class ProgramNotFound(Exception):
