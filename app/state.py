@@ -19,7 +19,8 @@ class State:
 
 
     def set_model(self, is_hd):
-        if is_hd is True:
+        self.is_hd = is_hd
+        if self.is_hd is True:
             self._unicornhat = unicornhathd
             self._app_programs = app.programs.hd
         else:
