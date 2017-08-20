@@ -4,7 +4,6 @@ import math
 
 
 FLAG = [
-    "BWBWBWBWRRRRRRRR",
     "WBWBWBWBWWWWWWWW",
     "BWBWBWBWRRRRRRRR",
     "WBWBWBWBWWWWWWWW",
@@ -20,10 +19,11 @@ FLAG = [
     "WWWWWWWWWWWWWWWW",
     "RRRRRRRRRRRRRRRR",
     "WWWWWWWWWWWWWWWW",
+    "RRRRRRRRRRRRRRRR",
 ]
 
 def lookup_color(x, y):
-    color_letter = FLAG[14-x][15-y]
+    color_letter = FLAG[15-x][15-y]
     if color_letter == "R":
         return (255,0,0)
     elif color_letter == "W":
