@@ -4,6 +4,7 @@ import json
 from app.state import state
 
 HD_PROGRAMS_LIST = [
+    ["america",     "America"],
     ["candle",      "Candle"],
     ["demo",        "Demo"],
     ["forest_fire", "Forest Fire"],
