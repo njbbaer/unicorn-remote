@@ -30,4 +30,6 @@ body {
   transform: translate(-50%, 0);
   text-align: center;
   width: 75%;
+  max-height: 300px;
+  overflow-x: hidden;
 }
