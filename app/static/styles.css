@@ -3,7 +3,7 @@ body {
   padding-bottom: 20px;
 }
 
-button {
+.run-button {
   margin-top: 20px;
   margin-right: 8px;
   width: 120px;
@@ -14,7 +14,7 @@ button {
 }
 
 #programs-dropdown {
-    width: 250px;
+    width: 100%;
 }
 
 #rotation-buttons {

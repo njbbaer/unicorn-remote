@@ -54,17 +54,21 @@
         <h1>Unicorn Remote</h1>
         <p>Control this Unicorn HAT LED Matrix</p>
 
-        <div class="dropdown">
-          <div class="btn-group btn-group-justified" role="group">
-            <button id="programs-dropdown" class="btn btn-lg btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-              Select a Program
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              {% for program in programs_list %}
-                <li><a data-value={{ program[0] }}>{{ program[1] }}</a></li>
-              {% endfor %}
-            </ul>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="dropdown">
+              <div class="btn-group btn-group-justified" role="group">
+                <button id="programs-dropdown" class="btn btn-lg btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                  Select a Program
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  {% for program in programs_list %}
+                    <li><a data-value={{ program[0] }}>{{ program[1] }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -92,8 +96,8 @@
         </div>
 
         <div>
-          <button id="start-button" type="button" class="btn btn-lg btn-primary" href="#" disabled>Start</button>
-          <button id="stop-button" type="button" class="btn btn-lg btn-default" href="#">Stop</button>
+          <button id="start-button" type="button" class="run-button btn btn-lg btn-primary" href="#" disabled>Start</button>
+          <button id="stop-button" type="button" class="run-button btn btn-lg btn-default" href="#">Stop</button>
         </div>
 
       </div>
