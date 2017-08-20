@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="Control this Unicorn HAT LED Matrix">
+    <meta name="description" content="Control this Unicorn HAT LED matrix">
     <meta name="author" content="Nathaniel Baer">
 
-    <title>Unicorn Hat</title>
+    <title>Unicorn Remote</title>
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -41,7 +41,6 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <li><a href="https://github.com/njbbaer/unicorn-remote">View on GitHub</a></li>
@@ -52,48 +51,64 @@
       <!-- Main component -->
       <div class="jumbotron">
         <h1>Unicorn Remote</h1>
-        <p>Control this Unicorn HAT LED Matrix</p>
+        <p>Control this Unicorn HAT LED matrix</p>
 
-        <div class="dropdown">
-          <div class="btn-group btn-group-justified" role="group">
-            <button id="programs-dropdown" class="btn btn-lg btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-              Select a Program
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              {% for program in programs_list %}
-                <li><a data-value={{ program[0] }}>{{ program[1] }}</a></li>
-              {% endfor %}
-            </ul>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="dropdown">
+              <div class="btn-group btn-group-justified" role="group">
+                <button id="programs-dropdown" class="btn btn-lg btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                  Select a Program
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-center">
+                  {% for program in programs_list %}
+                    <li><a data-value={{ program[0] }}>{{ program[1] }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         <h4>Brightness</h4>
-        <input id="brightness-slider" data-slider-id='brightnessSlider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.1" data-slider-value="0.5"/>
-
-        <h4>Rotation</h4>
-        <div id="rotation-buttons" class="btn-group btn-group-lg btn-group-justified" data-toggle="buttons">
-          <label class="btn btn-default active">
-            <input type="radio" name="rotation" value=0 checked>
-            0
-          </label>
-          <label class="btn btn-default">
-            <input type="radio" name="rotation" value=90>
-            90
-          </label>
-          <label class="btn btn-default">
-            <input type="radio" name="rotation" value=180>
-            180
-          </label>
-          <label class="btn btn-default">
-            <input type="radio" name="rotation" value=270>
-            270
-          </label>
+        <div class="row">
+          <div class="col-md-4">
+            <input id="brightness-slider" data-slider-id='brightnessSlider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.1" data-slider-value="0.5"/>
+          </div>
         </div>
 
-        <div>
-          <button id="start-button" type="button" class="btn btn-lg btn-primary" href="#" disabled>Start</button>
-          <button id="stop-button" type="button" class="btn btn-lg btn-default" href="#">Stop</button>
+        <h4>Rotation</h4>
+        <div class="row">
+          <div class="col-md-4">
+            <div id="rotation-buttons" class="btn-group btn-group-lg btn-group-justified" data-toggle="buttons">
+              <label class="btn btn-default active">
+                <input type="radio" name="rotation" value=0 checked>
+                0
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="rotation" value=90>
+                90
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="rotation" value=180>
+                180
+              </label>
+              <label class="btn btn-default">
+                <input type="radio" name="rotation" value=270>
+                270
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+            <button id="start-button" type="button" class="run-button btn btn-lg btn-primary" href="#" disabled>Start</button>
+          </div>
+          <div class="col-md-2">
+            <button id="stop-button" type="button" class="run-button btn btn-lg btn-default" href="#">Stop</button>
+          </div>
         </div>
 
       </div>

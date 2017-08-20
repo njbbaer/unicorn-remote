@@ -3,10 +3,9 @@ body {
   padding-bottom: 20px;
 }
 
-button {
+.run-button {
   margin-top: 20px;
-  margin-right: 8px;
-  width: 120px;
+  width: 100%;
 }
 
 .navbar {
@@ -14,14 +13,23 @@ button {
 }
 
 #programs-dropdown {
-    width: 250px;
+  width: 100%;
 }
 
 #rotation-buttons {
-    width: 250px;
+  width: 100%;
 }
 
 .slider {
-    width: 250px !important;
+  width: 100% !important;
 }
 
+.dropdown-menu {
+  font-size: 18px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  width: 75%;
+  max-height: 300px;
+  overflow-x: hidden;
+}
