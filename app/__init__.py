@@ -2,18 +2,23 @@ from flask import Flask, request
 from flask_restful import Api
 import atexit
 
-from app.views import index
 from app.state import state
+from app.views import index
 from app.api import SetProgram, StopProgram
 
 
-app = Flask(__name__)
-app.register_blueprint(index)
+def create_app(is_hd=True):
+    state.set_model(is_hd)
 
-app.config['ERROR_404_HELP'] = False
+    app = Flask(__name__)
+    app.register_blueprint(index)
 
-api = Api(app)
-api.add_resource(SetProgram, '/api/program/<string:program>')
-api.add_resource(StopProgram, '/api/program')
+    app.config['ERROR_404_HELP'] = False
 
-atexit.register(state.stop_program)
+    api = Api(app)
+    api.add_resource(SetProgram, '/api/program/<string:program>')
+    api.add_resource(StopProgram, '/api/program')
+
+    atexit.register(state.stop_program)
+
+    return app

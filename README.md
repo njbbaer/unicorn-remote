@@ -1,34 +1,28 @@
 ![Unicorn Remote](logo.png)
 
-Unicorn Remote is a Python web application designed to run on a Raspberry Pi with attached Unicorn HAT LED matrix. Users can run animated programs on the HAT from a web interface or with the REST API.
+Unicorn Remote is a Python web application designed to run animated programs on a Raspberry Pi with attached Unicorn HAT LED matrix. It can be controlled from both a web interface and RESTful API.
 
-The Unicorn HAT is available from Pimoroni:  
-https://shop.pimoroni.com/products/unicorn-hat
+Unicorn Remote supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8.
 
-I highly recommend this case:  
-https://shop.pimoroni.com/products/pibow-for-raspberry-pi-3  
-With a diffuser:  
-https://shop.pimoroni.com/products/pibow-modification-layers  
-Optionally, add a QR code or NFC chip to share the web ui address.
+The Unicorn HAT HD is available from Pimoroni:  
+https://shop.pimoroni.com/products/unicorn-hat-hd
 
 
 ## Setup
-1. Disable analog audio output. Analog audio inteferes with the Unicorn HAT. In your `/boot/config.txt` comment the line:
-```
-#dtparam=audio=on
-```
-
-2. Clone or download the git repository:
+1. Clone or download the git repository:
 ```
 git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
 ```
 
-3. Install dependencies:
+2. Install dependencies:
+```
+sudo apt install python3-pip python3-numpy
+```
 ```
 sudo pip3 install -r requirements.txt
 ```
 
-4. Start the Unicorn Remote:
+3. Start the Unicorn Remote:
 ```
 sudo python3 run.py
 ```
@@ -36,8 +30,10 @@ sudo python3 run.py
 
 
 #### Optional Arguments
-`-d` `--debug` enable debugging mode  
+`-o` `--original` use original 8x8 unicorn hat  
+`-d` `--debug` enable Flask debugging mode  
 `-p` `--port` `<port>` set port number (default 5000)
+
 
 
 ## Web Interface
@@ -46,12 +42,12 @@ Visit the web interface by directing a browser to the server's address.
 http://127.0.0.1:5000
 ```
 
-* Enter the desired brightness (between 0 and 1) and display rotation (0, 90, 180, or 270).
 * Choose a program from the dropdown list.
+* Select the desired brightness and display rotation.
 * Press `Run` to start the program, and `Stop` to end it.
 
 
-## REST API
+## RESTful API
 Start a program by placing a PUT request:
 ```
 PUT /api/program/<program_name>
@@ -72,7 +68,7 @@ sudo python3 -m unittest
 
 
 ## Contribute
-* **Star this repository**
+* **Star this repository** to show your interest in this project.
 * Give feedback, report bugs, and request features as GitHub issues.
 * Improve the repository and submit a pull request.
 

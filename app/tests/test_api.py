@@ -1,23 +1,32 @@
 import unittest
 
-from app import app, state
+from app import create_app
+from app.state import state
+
+import app.programs
 
 
 class TestAPI(unittest.TestCase):
     
     def setUp(self):
+        app = create_app()
         self.app = app.test_client()
 
     def tearDown(self):
         state.stop_program()
 
-    def test_start_all(self):
-        programs= ["ascii_text", "cheertree", "cross", "demo", "dna", 
-            "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-            "random_blinky", "random_sparkles", "simple", "snow", "trig"]
-        for program in programs:
-            with self.subTest(program=program):
-                r = self.app.put("/api/program/" + program)
+    def test_start_all_hd(self):
+        state.set_model(is_hd=True)
+        for name, _ in app.programs.hd.items():
+            with self.subTest(program=name):
+                r = self.app.put("/api/program/" + name)
+                self.assertEqual(r.status_code, 200)
+
+    def test_start_all_original(self):
+        state.set_model(is_hd=False)
+        for name, _ in app.programs.original.items():
+            with self.subTest(program=name):
+                r = self.app.put("/api/program/" + name)
                 self.assertEqual(r.status_code, 200)
 
     def test_start_not_found(self):

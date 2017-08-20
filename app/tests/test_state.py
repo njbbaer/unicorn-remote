@@ -1,6 +1,7 @@
 import unittest
 import time
 
+import app.programs
 from app.state import state, ProgramNotFound
 
 
@@ -10,13 +11,18 @@ class TestState(unittest.TestCase):
         if state._process is not None:
             state._process.terminate()
 
-    def test_start_all(self):
-        programs= ["ascii_text", "cheertree", "cross", "demo", "dna", 
-            "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-            "random_blinky", "random_sparkles", "simple", "snow", "trig"]
-        for program in programs:
-            with self.subTest(program=program):
-                r = state.start_program(program)
+    def test_start_all_hd(self):
+        state.set_model(is_hd=True)
+        for name, _ in app.programs.hd.items():
+            with self.subTest(program=name):
+                r = state.start_program(name)
+                self.assertTrue(state._process.is_alive())
+
+    def test_start_all_original(self):
+        state.set_model(is_hd=False)
+        for name, _ in app.programs.original.items():
+            with self.subTest(program=name):
+                r = state.start_program(name)
                 self.assertTrue(state._process.is_alive())
 
     def test_start_not_found(self):
