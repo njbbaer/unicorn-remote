@@ -4,12 +4,8 @@ body {
 }
 
 .run-button {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
-}
-
-.navbar {
-  margin-bottom: 20px;
 }
 
 #programs-dropdown {
