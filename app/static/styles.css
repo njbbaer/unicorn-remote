@@ -5,8 +5,23 @@ body {
 
 button {
   margin-top: 20px;
+  margin-right: 8px;
+  width: 120px;
 }
 
 .navbar {
   margin-bottom: 20px;
 }
+
+#programs-dropdown {
+    width: 250px;
+}
+
+#rotation-buttons {
+    width: 250px;
+}
+
+.slider {
+    width: 250px !important;
+}
+
