@@ -13,14 +13,21 @@ body {
 }
 
 #programs-dropdown {
-    width: 100%;
+  width: 100%;
 }
 
 #rotation-buttons {
-    width: 100%;
+  width: 100%;
 }
 
 .slider {
-    width: 100% !important;
+  width: 100% !important;
 }
 
+.dropdown-menu {
+  font-size: 18px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  width: 75%;
+}
