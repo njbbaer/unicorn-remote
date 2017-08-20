@@ -16,6 +16,9 @@ git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
 
 2. Install dependencies:
 ```
+sudo apt install python3-pip python3-numpy
+```
+```
 sudo pip3 install -r requirements.txt
 ```
 
