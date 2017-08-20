@@ -2,15 +2,7 @@ import unittest
 import multiprocessing
 import time
 
-import app.programs.hd
-import app.programs.original
-
-
-HD_PROGRAMS_LIST = ["candle", "demo", "forest_fire", "game_of_life", "rainbow", 
-    "stars", "trig"]
-ORIGINAL_PROGRAMS_LIST = ["ascii_text", "cheertree", "cross", "demo", "dna", 
-    "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-    "random_blinky", "random_sparkles", "simple", "snow", "trig"]
+import app.programs
 
 
 class TestPrograms(unittest.TestCase):
@@ -22,13 +14,11 @@ class TestPrograms(unittest.TestCase):
         self.process.terminate()
 
     def test_all_hd(self):
-        for program in HD_PROGRAMS_LIST:
-            with self.subTest(program=program):
-                run = getattr(app.programs.hd, program).run
-                self.run_program(run)
+        for name, program in app.programs.hd.items():
+            with self.subTest(program=name):
+                self.run_program(program.run)
 
     def test_all_original(self):
-        for program in ORIGINAL_PROGRAMS_LIST:
-            with self.subTest(program=program):
-                run = getattr(app.programs.original, program).run
-                self.run_program(run)
+        for name, program in app.programs.original.items():
+            with self.subTest(program=name):
+                self.run_program(program.run)

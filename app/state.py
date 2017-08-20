@@ -6,8 +6,8 @@ import os
 
 import unicornhat
 import unicornhathd
-import app.programs.original
-import app.programs.hd
+
+import app.programs
 
 
 class State:
@@ -30,8 +30,8 @@ class State:
 
     def start_program(self, name, params={}):
         try:
-            program = getattr(self._app_programs, name)
-        except AttributeError:
+            program = self._app_programs[name]
+        except KeyError:
             raise ProgramNotFound(name)
 
         self.stop_program()

@@ -3,12 +3,7 @@ import unittest
 from app import create_app
 from app.state import state
 
-
-HD_PROGRAMS_LIST = ["candle", "demo", "forest_fire", "game_of_life", "rainbow", 
-    "stars", "trig"]
-ORIGINAL_PROGRAMS_LIST = ["ascii_text", "cheertree", "cross", "demo", "dna", 
-    "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-    "random_blinky", "random_sparkles", "simple", "snow", "trig"]
+import app.programs
 
 
 class TestAPI(unittest.TestCase):
@@ -22,16 +17,16 @@ class TestAPI(unittest.TestCase):
 
     def test_start_all_hd(self):
         state.set_model(is_hd=True)
-        for program in HD_PROGRAMS_LIST:
-            with self.subTest(program=program):
-                r = self.app.put("/api/program/" + program)
+        for name, _ in app.programs.hd.items():
+            with self.subTest(program=name):
+                r = self.app.put("/api/program/" + name)
                 self.assertEqual(r.status_code, 200)
 
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        for program in ORIGINAL_PROGRAMS_LIST:
-            with self.subTest(program=program):
-                r = self.app.put("/api/program/" + program)
+        for name, _ in app.programs.original.items():
+            with self.subTest(program=name):
+                r = self.app.put("/api/program/" + name)
                 self.assertEqual(r.status_code, 200)
 
     def test_start_not_found(self):

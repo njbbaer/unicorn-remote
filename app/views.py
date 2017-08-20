@@ -1,36 +1,19 @@
 from flask import render_template, request, Blueprint
-import json
+from collections import namedtuple
 
 from app.state import state
+from app.programs import original, hd
 
-HD_PROGRAMS_LIST = [
-    ["america",     "America"],
-    ["candle",      "Candle"],
-    ["demo",        "Demo"],
-    ["forest_fire", "Forest Fire"],
-    ["game_of_life","Game of Life"],
-    ["rainbow",     "Rainbow"],
-    ["stars",       "Stars"], 
-    ["trig",        "Trig"]
-]
 
-ORIGINAL_PROGRAMS_LIST = [
-    ["ascii_text",      "ASCII Text"],
-    ["cheertree",       "Cheertree"],
-    ["cross",           "Cross"],
-    ["demo",            "Demo"],
-    ["dna",             "DNA"],
-    ["game_of_life",    "Game of Life"],
-    ["matrix",          "Matrix"],
-    ["psychedelia",     "Psychedelia"],
-    ["rain",            "Rain"],
-    ["rainbow",         "Rainbow"],
-    ["random_blinky",   "Random Blinky"],
-    ["random_sparkles", "Random Sparkles"],
-    ["simple",          "Simple"],
-    ["snow",            "Snow"],
-    ["trig",            "Trig"],
-]
+ListItem = namedtuple("Button", "key title")
+
+hd_programs_list = []
+for key, program in sorted(hd.items()):
+    hd_programs_list.append(ListItem(key, program.title))
+
+original_programs_list = []
+for key, program in sorted(original.items()):
+    original_programs_list.append(ListItem(key, program.title))
 
 
 index = Blueprint('index', __name__, template_folder='templates')
@@ -39,7 +22,7 @@ def show():
     
     if request.method == 'GET':
         if state.is_hd is True:
-            programs_list = HD_PROGRAMS_LIST
+            programs_list = hd_programs_list
         else:
-            programs_list = ORIGINAL_PROGRAMS_LIST
+            programs_list = original_programs_list
         return render_template('index.html', programs_list=programs_list)

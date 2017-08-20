@@ -1,14 +1,8 @@
 import unittest
 import time
 
+import app.programs
 from app.state import state, ProgramNotFound
-
-
-HD_PROGRAMS_LIST = ["candle", "demo", "forest_fire", "game_of_life", "rainbow", 
-    "stars", "trig"]
-ORIGINAL_PROGRAMS_LIST = ["ascii_text", "cheertree", "cross", "demo", "dna", 
-    "game_of_life", "matrix", "psychedelia", "rain", "rainbow", 
-    "random_blinky", "random_sparkles", "simple", "snow", "trig"]
 
 
 class TestState(unittest.TestCase):
@@ -19,16 +13,16 @@ class TestState(unittest.TestCase):
 
     def test_start_all_hd(self):
         state.set_model(is_hd=True)
-        for program in HD_PROGRAMS_LIST:
-            with self.subTest(program=program):
-                r = state.start_program(program)
+        for name, _ in app.programs.hd.items():
+            with self.subTest(program=name):
+                r = state.start_program(name)
                 self.assertTrue(state._process.is_alive())
 
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        for program in ORIGINAL_PROGRAMS_LIST:
-            with self.subTest(program=program):
-                r = state.start_program(program)
+        for name, _ in app.programs.original.items():
+            with self.subTest(program=name):
+                r = state.start_program(name)
                 self.assertTrue(state._process.is_alive())
 
     def test_start_not_found(self):

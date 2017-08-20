@@ -1,1 +1,0 @@
-from . import america, candle, demo, forest_fire, game_of_life, rainbow, stars, trig
