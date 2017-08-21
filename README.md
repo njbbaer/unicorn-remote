@@ -1,4 +1,4 @@
-![Unicorn Remote](logo.png)
+![Unicorn Remote Logo](media/logo.png)
 
 Unicorn Remote is a Python web application designed to run animated programs on a Raspberry Pi with attached Unicorn HAT LED matrix. It can be controlled from both a web interface and RESTful API.
 
@@ -6,6 +6,9 @@ Unicorn Remote supports both the new Unicorn HAT HD 16x16 and original Unicorn H
 
 The Unicorn HAT HD is available from Pimoroni:  
 https://shop.pimoroni.com/products/unicorn-hat-hd
+
+
+![Web UI Screenshot](media/webui_screenshot.png)
 
 
 ## Setup
