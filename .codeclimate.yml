@@ -1,3 +1,11 @@
+engines:
+  pep8:
+    enabled: true
+
+ratings:
+   paths:
+   - "**.py"
+
 exclude_paths:
 - "app/programs/hd/"
 - "app/programs/original/"
