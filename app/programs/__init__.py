@@ -5,7 +5,7 @@ Program = namedtuple("Program", "title run")
 
 hd={
     "america": Program(
-        title="American Flag",
+        title="America",
         run=import_module("app.programs.hd.america").run
     ),
     "candle": Program(
@@ -28,16 +28,12 @@ hd={
         title="Rainbow",
         run=import_module("app.programs.hd.rainbow").run
     ),
-    "solomon": Program(
-        title="Solomon the Fish",
-        run=import_module("app.programs.hd.solomon").run
-    ),
     "stars": Program(
         title="Stars",
         run=import_module("app.programs.hd.stars").run
     ),
     "trig": Program(
-        title="Trig Functions",
+        title="Trig",
         run=import_module("app.programs.hd.trig").run
     ),
 }
