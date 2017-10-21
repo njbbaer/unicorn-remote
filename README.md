@@ -14,12 +14,14 @@ https://shop.pimoroni.com/products/unicorn-hat-hd
 
 
 ## Setup
-1. Clone or download the git repository:
+1. First time setup for Unicorn Hat HD with Python (https://github.com/pimoroni/unicorn-hat-hd)
+
+2. Clone or download this git repository:
 ```
 git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 ```
 sudo apt install python3-pip python3-numpy
 ```
@@ -27,7 +29,7 @@ sudo apt install python3-pip python3-numpy
 sudo pip3 install -r requirements.txt
 ```
 
-3. Start the Unicorn Remote:
+4. Start the Unicorn Remote:
 ```
 sudo python3 run.py
 ```
