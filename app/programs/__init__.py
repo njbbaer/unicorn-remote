@@ -24,6 +24,10 @@ hd={
         title="Game of Life",
         run=import_module("app.programs.hd.game_of_life").run
     ),
+    "matrix": Program(
+        title="Matrix",
+        run=import_module("app.programs.hd.matrix").run
+    ),
     "rainbow": Program(
         title="Rainbow",
         run=import_module("app.programs.hd.rainbow").run
