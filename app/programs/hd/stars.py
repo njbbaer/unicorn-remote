@@ -31,7 +31,7 @@ def run(params):
              
           v = stars[i][2]
 
-          unicornhathd.set_pixel(stars[i][0], stars[i][1], v, v, v)
+          unicornhathd.set_pixel(int(stars[i][0]), int(stars[i][1]), v, v, v)
 
         unicornhathd.show()
 
