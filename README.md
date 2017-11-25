@@ -10,7 +10,7 @@ The Unicorn HAT HD is available from Pimoroni:
 https://shop.pimoroni.com/products/unicorn-hat-hd
 
 
-![Web UI Screenshot](media/webui_screenshot.png)
+![Web UI screenshot](media/webui_screenshot.png) ![Demo animation](media/demo_animation.gif)
 
 
 ## Setup
