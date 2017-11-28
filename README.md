@@ -2,20 +2,20 @@
 
 [![Code Climate](https://codeclimate.com/github/njbbaer/unicorn-remote/badges/gpa.svg)](https://codeclimate.com/github/njbbaer/unicorn-remote)
 
-Unicorn Remote is a Python web application designed to run animated programs on a Raspberry Pi with attached Unicorn HAT LED matrix. It can be controlled from both a web interface and RESTful API.
+Unicorn Remote is a web based remote control for the Unicorn HAT LED matrix. Control your animations from a desktop browser, mobile browser, or REST API.
 
-Unicorn Remote supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8.
+Supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8. Comes with a built-in set of  programs for both, and allows you add your own.
 
-The Unicorn HAT HD is available from Pimoroni:  
+The Unicorn HATs are available from Pimoroni:  
 https://shop.pimoroni.com/products/unicorn-hat-hd
+https://shop.pimoroni.com/products/unicorn-hat
 
 
 ![Web UI screenshot](media/webui_screenshot.png) ![Demo animation](media/demo_animation.gif)
 
 
 ## Setup
-1. First time setup for Unicorn Hat HD with Python (https://github.com/pimoroni/unicorn-hat-hd)
-
+1. Do first time setup for [Unicorn HAT](https://github.com/pimoroni/unicorn-hat) or [Unicorn HAT HD](https://github.com/pimoroni/unicorn-hat-hd) 
 2. Clone or download this git repository:
 ```
 git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
@@ -54,7 +54,7 @@ http://127.0.0.1:5000
 * Press `Run` to start the program, and `Stop` to end it.
 
 
-## RESTful API
+## REST API
 Start a program by placing a PUT request:
 ```
 PUT /api/program/<program_name>
