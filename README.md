@@ -2,12 +2,12 @@
 
 [![Code Climate](https://codeclimate.com/github/njbbaer/unicorn-remote/badges/gpa.svg)](https://codeclimate.com/github/njbbaer/unicorn-remote)
 
-Unicorn Remote is a web based remote control for the Unicorn HAT LED matrix. Control your animations from a desktop browser, mobile browser, or REST API.
+Unicorn Remote is a web based remote control for the Unicorn HAT LED matrix. It allows you to control light grid programs from a desktop or mobile browser, or REST API.
 
-Supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8. Comes with a built-in set of  programs for both, and allows you add your own.
+Supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8. It comes with a built-in set of  programs for both, and allows you add your own.
 
 The Unicorn HATs are available from Pimoroni:  
-https://shop.pimoroni.com/products/unicorn-hat-hd
+https://shop.pimoroni.com/products/unicorn-hat-hd  
 https://shop.pimoroni.com/products/unicorn-hat
 
 
