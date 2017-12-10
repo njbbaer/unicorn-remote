@@ -7,12 +7,13 @@ import time
 
 import unicornhathd
 
+STEP_RATE = 0.1
 
 def run(params):
   step = 0
   try:
       while True:
-        step += 1
+        step += STEP_RATE
         for x in range(0, 16):
           for y in range(0, 16):
             dx = 7
