@@ -12,6 +12,10 @@ hd={
         title="Candle",
         run=import_module("app.programs.hd.candle").run
     ),
+    "cpu_utilization": Program(
+        title="CPU Utilization",
+        run=import_module("app.programs.hd.cpu_utilization").run
+    ),
     "demo": Program(
         title="Demo",
         run=import_module("app.programs.hd.demo").run
