@@ -15,26 +15,27 @@ https://shop.pimoroni.com/products/unicorn-hat
 
 
 ## Setup
-1. Do first time setup for [Unicorn HAT](https://github.com/pimoroni/unicorn-hat) or [Unicorn HAT HD](https://github.com/pimoroni/unicorn-hat-hd) 
-2. Clone or download this git repository:
+1. Follow first time setup for [Unicorn HAT](https://github.com/pimoroni/unicorn-hat) or [Unicorn HAT HD](https://github.com/pimoroni/unicorn-hat-hd)
+2. Clone or download the repository:
 ```
-git clone https://github.com/njbbaer/unicorn-remote.git && cd unicorn-remote
-```
-
-3. Install dependencies:
-```
-sudo apt install python3-pip python3-numpy
-```
-```
-sudo pip3 install -r requirements.txt
+git clone https://github.com/njbbaer/unicorn-remote.git
 ```
 
-4. Start the Unicorn Remote:
+3. Install the Python packaging tool [Pipenv](https://docs.pipenv.org/):
 ```
-sudo python3 run.py
+pip install pipenv
+```
+
+4. Install dependencies with Pipenv:
+```
+pipenv install
+```
+
+5. Start Unicorn Remote:
+```
+pipenv run python run.py
 ```
 *Note:* Must be run as root
-
 
 #### Optional Arguments
 `-o` `--original` use original 8x8 unicorn hat  
@@ -46,7 +47,7 @@ sudo python3 run.py
 ## Web Interface
 Visit the web interface by directing a browser to the server's address.
 ```
-http://127.0.0.1:5000
+http://localhost:5000
 ```
 
 * Choose a program from the dropdown list.
@@ -78,4 +79,3 @@ sudo python3 -m unittest
 * **Star this repository** to show your interest in this project.
 * Give feedback, report bugs, and request features as GitHub issues.
 * Improve the repository and submit a pull request.
-
