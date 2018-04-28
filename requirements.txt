@@ -1,5 +1,0 @@
-Flask==0.12.2
-Flask-RESTful==0.3.6
-pyfiglet==0.7.5
-unicornhat==2.1.3
-unicornhathd==0.0.2
