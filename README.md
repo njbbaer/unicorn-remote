@@ -19,23 +19,25 @@ https://shop.pimoroni.com/products/unicorn-hat
 2. Clone or download the repository:
 ```
 git clone https://github.com/njbbaer/unicorn-remote.git
+cd unicorn-remote
 ```
 
 3. Install the Python packaging tool [Pipenv](https://docs.pipenv.org/):
 ```
-pip install pipenv
+sudo pip3 install pipenv
 ```
 
 4. Install dependencies with Pipenv:
 ```
-pipenv install
+sudo pipenv install
 ```
 
 5. Start Unicorn Remote:
 ```
-pipenv run python run.py
+sudo pipenv run python run.py
 ```
-*Note:* Must be run as root
+
+*Note:* Commands must be run as root
 
 #### Optional Arguments
 `-o` `--original` use original 8x8 unicorn hat  
