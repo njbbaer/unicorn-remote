@@ -2,16 +2,17 @@
 
 [![Code Climate](https://codeclimate.com/github/njbbaer/unicorn-remote/badges/gpa.svg)](https://codeclimate.com/github/njbbaer/unicorn-remote)
 
-Unicorn Remote is a web based remote control for the Unicorn HAT LED matrix. It allows you to control light grid programs from a desktop or mobile browser, or REST API.
+Unicorn Remote is a web based remote control for the Unicorn HAT LED matrix. It allows you to control light grid programs from a desktop or mobile browser and a web API.
 
-Supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8. It comes with a built-in set of  programs for both, and allows you add your own.
+Supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8. It comes with a built-in set of programs for both, and allows you add your own.
 
-The Unicorn HATs are available from Pimoroni:  
-https://shop.pimoroni.com/products/unicorn-hat-hd  
-https://shop.pimoroni.com/products/unicorn-hat
+The [Unicorn HAT](https://shop.pimoroni.com/products/unicorn-hat) and [HAT HD](https://shop.pimoroni.com/products/unicorn-hat-hd) are available from Pimoroni.
 
 
 ![Web UI screenshot](media/webui_screenshot.png) ![Demo animation](media/demo_animation.gif)
+
+
+*If this software has been useful to you, please **star the repository** to show your interest.*
 
 
 ## Setup
@@ -62,7 +63,7 @@ Start a program by placing a PUT request:
 ```
 PUT /api/program/<program_name>
 ```
-* All programs use the optional query parameters `brightness` and `rotatation`. Some take additional parameters (ex. `ascii_text` requires a value for `text`)
+* All programs use the optional query parameters `brightness` and `rotation`. Some take additional parameters (ex. `ascii_text` requires a value for `text`)
 
 Stop the currently running program:
 ```
@@ -73,11 +74,11 @@ DELETE /api/program
 ## Testing
 Run the test suite.
 ```
-sudo python3 -m unittest
+sudo pipenv run python -m unittest
 ```
 
 
 ## Contribute
-* **Star this repository** to show your interest in this project.
+* **Star the repository** to show your interest in this project.
 * Give feedback, report bugs, and request features as GitHub issues.
 * Improve the repository and submit a pull request.
