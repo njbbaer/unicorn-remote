@@ -12,19 +12,19 @@ class TestState(unittest.TestCase):
         if state._process is not None:
             state._process.terminate()
 
-    def test_start_all_hd(self):
-        state.set_model(is_hd=True)
-        for name, _ in app.programs.hd.list.items():
+    def start_all(self, list):
+        for name, _ in list.items():
             with self.subTest(program=name):
                 r = state.start_program(name)
                 self.assertTrue(state._process.is_alive())
 
+    def test_start_all_hd(self):
+        state.set_model(is_hd=True)
+        self.start_all(app.programs.hd.list)
+
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        for name, _ in app.programs.original.list.items():
-            with self.subTest(program=name):
-                r = state.start_program(name)
-                self.assertTrue(state._process.is_alive())
+        self.start_all(app.programs.original.list)
 
     def test_start_not_found(self):
         with self.assertRaises(ProgramNotFound):

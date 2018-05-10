@@ -16,12 +16,13 @@ class TestPrograms(unittest.TestCase):
         time.sleep(0.2)
         self.process.terminate()
 
-    def test_all_hd(self):
-        for name, program in app.programs.hd.list.items():
+    def start_all(self, list):
+        for name, program in list.items():
             with self.subTest(program=name):
                 self.run_program(program.location)
 
-    def test_all_original(self):
-        for name, program in app.programs.original.list.items():
-            with self.subTest(program=name):
-                self.run_program(program.location)
+    def test_start_all_hd(self):
+        self.start_all(app.programs.hd.list)
+
+    def test_start_all_original(self):
+        self.start_all(app.programs.original.list)
