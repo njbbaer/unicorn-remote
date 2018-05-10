@@ -7,7 +7,6 @@ import os
 import unicornhat
 import unicornhathd
 
-import app.programs
 
 
 class State:
@@ -21,11 +20,13 @@ class State:
     def set_model(self, is_hd):
         self.is_hd = is_hd
         if self.is_hd is True:
+            import app.programs.hd
             self._unicornhat = unicornhathd
-            self._app_programs = app.programs.hd
+            self._app_programs = app.programs.hd.list
         else:
+            import app.programs.original
             self._unicornhat = unicornhat
-            self._app_programs = app.programs.original
+            self._app_programs = app.programs.original.list
 
 
     def start_program(self, name, params={}):
@@ -50,7 +51,8 @@ class State:
             else:
                 raise ValueError("Rotation must be 0, 90, 180 or 270 degrees")
 
-        self._process = multiprocessing.Process(target=program.run, args=(params,))
+        run_program = importlib.import_module(program.location).run
+        self._process = multiprocessing.Process(target=run_program, args=(params,))
         self._process.start()
 
 

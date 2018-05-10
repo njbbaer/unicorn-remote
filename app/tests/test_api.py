@@ -1,13 +1,15 @@
 import unittest
+import time
 
 from app import create_app
 from app.state import state
 
-import app.programs
+import app.programs.hd
+import app.programs.original
 
 
 class TestAPI(unittest.TestCase):
-    
+
     def setUp(self):
         app = create_app()
         self.app = app.test_client()
@@ -17,14 +19,14 @@ class TestAPI(unittest.TestCase):
 
     def test_start_all_hd(self):
         state.set_model(is_hd=True)
-        for name, _ in app.programs.hd.items():
+        for name, _ in app.programs.hd.list.items():
             with self.subTest(program=name):
                 r = self.app.put("/api/program/" + name)
                 self.assertEqual(r.status_code, 200)
 
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        for name, _ in app.programs.original.items():
+        for name, _ in app.programs.original.list.items():
             with self.subTest(program=name):
                 r = self.app.put("/api/program/" + name)
                 self.assertEqual(r.status_code, 200)

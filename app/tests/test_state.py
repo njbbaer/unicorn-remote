@@ -1,7 +1,8 @@
 import unittest
 import time
 
-import app.programs
+import app.programs.hd
+import app.programs.original
 from app.state import state, ProgramNotFound
 
 
@@ -13,14 +14,14 @@ class TestState(unittest.TestCase):
 
     def test_start_all_hd(self):
         state.set_model(is_hd=True)
-        for name, _ in app.programs.hd.items():
+        for name, _ in app.programs.hd.list.items():
             with self.subTest(program=name):
                 r = state.start_program(name)
                 self.assertTrue(state._process.is_alive())
 
     def test_start_all_original(self):
         state.set_model(is_hd=False)
-        for name, _ in app.programs.original.items():
+        for name, _ in app.programs.original.list.items():
             with self.subTest(program=name):
                 r = state.start_program(name)
                 self.assertTrue(state._process.is_alive())

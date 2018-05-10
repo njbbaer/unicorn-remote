@@ -29,8 +29,8 @@ $('#start-button').click(function(e) {
 
 $('#stop-button').click(function(e) {
     $.ajax({
-        type: 'DELETE',
-        url: window.location.origin+'/api/program',
+        type: 'PUT',
+        url: window.location.origin+'/api/stop',
         success: function(resultData){
           console.log('Program stopped');
         },
