@@ -9,10 +9,10 @@ Supports both the new Unicorn HAT HD 16x16 and original Unicorn HAT 8x8. It come
 The [Unicorn HAT](https://shop.pimoroni.com/products/unicorn-hat) and [HAT HD](https://shop.pimoroni.com/products/unicorn-hat-hd) are available from Pimoroni.
 
 
-![Web UI screenshot](media/webui_screenshot.png) ![Demo animation](media/demo_animation.gif)
-
-
 *If this software has been useful to you, please **star the repository** to show your interest.*
+
+
+![Web UI screenshot](media/webui_screenshot.png) ![Demo animation](media/demo_animation.gif)
 
 
 ## Setup
@@ -25,7 +25,7 @@ cd unicorn-remote
 
 3. Install the Python packaging tool [Pipenv](https://docs.pipenv.org/):
 ```
-sudo pip3 install pipenv
+sudo pip install pipenv
 ```
 
 4. Install dependencies with Pipenv:
