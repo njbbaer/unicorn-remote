@@ -1,12 +1,7 @@
 import multiprocessing
-import unicornhathd as unicornhat
 import importlib
 import sys
 import os
-
-import unicornhat
-import unicornhathd
-
 
 
 class State:
@@ -20,10 +15,12 @@ class State:
     def set_model(self, is_hd):
         self.is_hd = is_hd
         if self.is_hd is True:
+            import unicornhathd
             import app.programs.hd
             self._unicornhat = unicornhathd
             self._app_programs = app.programs.hd.list
         else:
+            import unicornhat
             import app.programs.original
             self._unicornhat = unicornhat
             self._app_programs = app.programs.original.list
