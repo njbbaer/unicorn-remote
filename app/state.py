@@ -27,13 +27,32 @@ class State:
 
 
     def start_program(self, name, params={}):
+        program = self._get_program(name)
+        self.stop_program()
+        self._set_params(params)
+        self._start_process(program, params)
+
+
+    def stop_program(self):
+        if self._process is not None:
+            self._process.terminate()
+        self._unicornhat.show()
+
+
+    def _get_program(self, name):
         try:
-            program = self._app_programs[name]
+            return self._app_programs[name]
         except KeyError:
             raise ProgramNotFound(name)
 
-        self.stop_program()
 
+    def _start_process(self, program, params):
+        run_program = importlib.import_module(program.location).run
+        self._process = multiprocessing.Process(target=run_program, args=(params,))
+        self._process.start()
+
+
+    def _set_params(self, params):
         if params.get("brightness") is not None:
             brightness = float(params["brightness"])
             if 0 <= brightness <= 1:
@@ -47,16 +66,6 @@ class State:
                 self._unicornhat.rotation(rotation)
             else:
                 raise ValueError("Rotation must be 0, 90, 180 or 270 degrees")
-
-        run_program = importlib.import_module(program.location).run
-        self._process = multiprocessing.Process(target=run_program, args=(params,))
-        self._process.start()
-
-
-    def stop_program(self):
-        if self._process is not None:
-            self._process.terminate()
-        self._unicornhat.show()
 
 
 state = State()
