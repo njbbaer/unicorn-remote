@@ -24,6 +24,6 @@ class SetProgram(Resource):
 
 class StopProgram(Resource):
 
-    def delete(self):
+    def put(self):
         state.stop_program()
         return {"success": "Program stopped"}

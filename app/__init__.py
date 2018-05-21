@@ -17,7 +17,7 @@ def create_app(is_hd=True):
 
     api = Api(app)
     api.add_resource(SetProgram, '/api/program/<string:program>')
-    api.add_resource(StopProgram, '/api/program')
+    api.add_resource(StopProgram, '/api/stop')
 
     atexit.register(state.stop_program)
 

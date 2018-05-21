@@ -63,11 +63,11 @@ Start a program by placing a PUT request:
 ```
 PUT /api/program/<program_name>
 ```
-* All programs use the optional query parameters `brightness` and `rotation`. Some take additional parameters (ex. `ascii_text` requires a value for `text`)
+* All programs also accept optional query parameters for `brightness` and `rotation`.
 
 Stop the currently running program:
 ```
-DELETE /api/program
+PUT /api/stop
 ```
 
 

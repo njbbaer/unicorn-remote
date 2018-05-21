@@ -48,5 +48,5 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(r.status_code, 400)
 
     def test_stop_program(self):
-        r = self.app.delete("/api/program")
+        r = self.app.put("/api/stop")
         self.assertEqual(r.status_code, 200)
