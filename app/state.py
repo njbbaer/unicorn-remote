@@ -64,7 +64,8 @@ class State:
                 raise ValueError("Rotation must be 0, 90, 180 or 270 degrees")
 
     def _start_process(self, program, params):
-        run_program = importlib.import_module(program.location).run
+        def run_program(self):
+            importlib.import_module(program.location).run(params)
         self._process = multiprocessing.Process(target=run_program, args=(params,))
         self._process.start()
 
