@@ -58,6 +58,15 @@ http://localhost:5000
 * Press `Run` to start the program, and `Stop` to end it.
 
 
+## Custom Programs
+To add your own custom program, simply copy it into one of the follow directories:
+
+`app/programs/hd` for 32x32 programs  
+**OR**   
+`app/programs/original` for original 16x16 programs
+
+**No additional configuration required!**
+
 ## REST API
 Start a program by placing a PUT request:
 ```
