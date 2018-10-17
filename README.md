@@ -81,7 +81,7 @@ PUT /api/stop
 
 
 ## Testing
-Run the test suite.
+Run the test suite. Enjoy the light show.
 ```
 sudo pipenv run python -m unittest
 ```
